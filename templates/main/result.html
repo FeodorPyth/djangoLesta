@@ -1,10 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}
+  Таблица
+{% endblock %}
 
-</body>
-</html>
+{% block content %}
+  <h2>Результаты</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Слово</th>
+        <th scope="col">TF</th>
+        <th scope="col">IDF</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      {% for word in words %}
+        <tr>
+          <td>{{ word.word }}</td>
+          <td>{{ word.tf }}</td>
+          <td>{{ word.idf }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% include "includes/paginator.html" %}
+{% endblock %}
