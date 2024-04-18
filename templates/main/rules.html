@@ -1,10 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}
+  Правила
+{% endblock %}
 
-</body>
-</html>
+{% block content %}
+  <div class="col d-flex justify-content-center">
+    <div class="card" style="width: 40rem;">
+      <div class="card-header">
+        <h5>Правила сайта</h5>
+      </div>
+      <div class="card-body">
+        <p>
+          <b>Загрузка документа.</b> Загрузите в форму
+          на главной странице текстовый документ.
+          После обработки будет выведена таблица с 50 словами и колонками.
+        </p>
+        <p>
+          <b>Таблица результатов.</b> Таблица содержит три колонки:
+          слово, tf - частота повторения слова, idf - обратная частота документа.
+          Вывод упорядочен по уменьшению idf.
+        </p>
+      </div>
+    </div>
+  </div>
+{% endblock %}
