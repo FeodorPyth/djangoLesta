@@ -1,10 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% if words.has_other_pages %}
+  <nav class="my-5">
+    <ul class="pagination">
+      {% if words.has_previous %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ words.previous_page_number }}">
+            Предыдущая
+          </a>
+        </li>
+      {% endif %}
+      {% for i in words.paginator.page_range %}
+        {% if words.number == i %}
+          <li class="page-item active">
+            <span class="page-link">{{ i }}</span>
+          </li>
+        {% else %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+      {% if words.has_next %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ words.next_page_number }}">
+            Следующая
+          </a>
+        </li>
+      {% endif %}
+    </ul>
+  </nav>
+{% endif %}
