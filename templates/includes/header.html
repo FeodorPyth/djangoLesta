@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% load static %}
+<header>
+  <nav class="navbar" style="background-color: #C0C0C0;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'main:upload' %}">
+        <img src="{% static 'img/logo.jpg' %}" width="30" height="30" class="d-inline-block align-top" alt="">
+        LestaTest
+      </a>
+      {% with request.resolver_match.view_name as view_name %}
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a class="nav-link {% if view_name == 'main:rules' %} text-white {% endif %}" href="{% url 'main:rules' %}">
+              Правила
+            </a>
+          </li>
+        </ul>
+      {% endwith %}
+    </div>
+  </nav>
+</header>
